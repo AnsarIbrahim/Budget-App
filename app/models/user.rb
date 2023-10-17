@@ -5,4 +5,6 @@ class User < ApplicationRecord
 
   has_many :groups
   has_many :expenses, foreign_key: 'author_id'
+
+  has_one_attached :profile_photo
 end

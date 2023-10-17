@@ -1,0 +1,14 @@
+<div class="flex h-screen items-center justify-center bg-blue-500">
+  <div class="text-center">
+    <h1 class="text-4xl mb-8 text-white font-bold">Welcome to <%= @app_name %></h1>
+    <p>
+      <a href="<%= new_user_registration_path %>" class="bg-green-500 hover:bg-green-600 text-white text-lg px-6 py-3 rounded-full mr-4 font-semibold transition-transform transform hover:scale-105">Sign Up</a>
+      <a href="<%= new_user_session_path %>" class="bg-green-500 hover:bg-green-600 text-white text-lg px-6 py-3 rounded-full mr-4 font-semibold transition-transform transform hover:scale-105">Log In</a>
+
+      <!-- Log Out button -->
+      <% if user_signed_in? %>
+        <%= link_to('Log Out', destroy_user_session_path, method: :delete, class: 'text-white bg-red-500 hover:bg-red-600 text-lg px-6 py-3 rounded-full font-semibold transition-transform transform hover:scale-105') %>
+      <% end %>
+    </p>
+  </div>
+</div>

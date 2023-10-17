@@ -1,0 +1,92 @@
+<div class="bg-blue-500 text-black p-4 flex justify-between items-center w-[100%]">
+  <div class="flex items-center w-[100%] justify-between">
+    <!-- Hamburger menu icon (click to open/close) -->
+    <div class="menu-icon text-2xl cursor-pointer ml-2 lg:hidden" id="openMenu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="hidden lg:flex items-center">
+        <%= form_tag(logout_user_path, method: :delete) do %>
+            <%= csrf_meta_tags %>
+            <button type="submit" class="text-white bg-red-500 hover:bg-red-600 py-2 px-4 rounded-lg w-full">Sign Out</button>
+        <% end %>
+      </div>
+      <p class="font-semibold lg:mr-12 sm:inline text-2xl text-slate-800"><%= current_user.name %></p>
+    <!-- User Image (Dynamic Content) -->
+    <div class="flex items-center mr-2">
+      <%= image_tag(current_user.profile_photo, class: "w-10 h-10 rounded-full") if current_user.profile_photo.attached? %>
+    </div>
+</div>
+
+  <!-- Full-page menu (initially hidden) -->
+  <div class="full-page-menu sm:hidden" style="display: none;">
+    <div class="menu-content p-4 text-left"> <!-- Update text-center to text-left -->
+      <!-- Close Menu Icon -->
+      <div class="close-icon text-2xl left-0 cursor-pointer text-black" id="closeMenu">
+        <i class="fas fa-times"></i>
+      </div>
+      <!-- User Name and Image -->
+      <div class="flex items-center justify-center space-x-2 mb-4">
+        <%= image_tag(current_user.profile_photo, class: "w-16 h-16 rounded-full") if current_user.profile_photo.attached? %>
+        <p class="font-semibold text-xl"><%= current_user.name %></p>
+      </div>
+      <!-- Signout Button -->
+      <%= form_tag(logout_user_path, method: :delete) do %>
+        <%= csrf_meta_tags %>
+        <button type="submit" class="text-white bg-red-500 hover-bg-red-600 py-2 px-4 rounded-lg w-full">Sign Out</button>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+  document.addEventListener("turbo:load", function () {
+    const openMenuIcon = document.getElementById("openMenu");
+    const closeMenuIcon = document.getElementById("closeMenu");
+    const fullPageMenu = document.querySelector(".full-page-menu");
+
+    openMenuIcon.addEventListener("click", () => {
+      // Show the full-page menu and close icon
+      fullPageMenu.style.display = "block";
+      closeMenuIcon.style.display = "block";
+
+      // Hide the hamburger menu icon
+      openMenuIcon.style.display = "none";
+    });
+
+    closeMenuIcon.addEventListener("click", () => {
+      // Hide the full-page menu and close icon
+      fullPageMenu.style.display = "none";
+      closeMenuIcon.style.display = "none";
+
+      // Show the hamburger menu icon
+      openMenuIcon.style.display = "block";
+    });
+  });
+</script>
+
+<style>
+  /* Styling for the full-page menu */
+  .full-page-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .menu-content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+</style>

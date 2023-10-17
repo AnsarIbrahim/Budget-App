@@ -1,0 +1,74 @@
+<%= render 'partial/navbar' %>
+
+<div class="bg-white text-center w-[100%]">
+  <div class="bg-blue-500 text-white py-4">
+    <h1 class="font-bold text-2xl">TRANSACTIONS DETAILS</h1>
+    
+    <div class="flex justify-end mt-3 space-x-5 mr-4">
+      <div class="relative cursor-pointer hover:text-green-500">
+        <p class="font-extralight">Most recent</p>
+        <div class="absolute w-2 h-2 bg-white left-1/2 -translate-x-1 -bottom-2 rounded-full"></div>
+      </div>
+      <div class="text-slate-400 cursor-pointer hover:text-green-500">
+        <p class="font-extralight">Most ancient</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-slate-100">
+    <div class="text-slate-500 flex items-center justify-between p-5 border-b shadow-lg">
+      <p class="font-semibold">Gift credit</p>
+      <p>$00.00</p>
+    </div>
+
+  <div class="bg-white">
+    <!-- Total amount for the category -->
+   <div class="border p-4 mt-4 border-b shadow-lg">
+    <h2 class="text-xl font-semibold">Category: <%= @category.name %></h2>
+    <p class="text-lg">Total Amount: $<%= @total_amount %></p>
+  </div>
+
+
+    <!-- List of transactions -->
+    <div class="flex flex-col mt-4 border p-4 border-b shadow-lg items-center">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+                <table class="min-w-full text-left text-sm font-light">
+                    <thead class="border-b font-medium dark:border-neutral-500">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">Name</th>
+                            <th scope="col" class="px-6 py-3">Date</th>
+                            <th scope="col" class="px-6 py-3">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% @transactions.each do |transaction| %>
+                        <tr
+                            class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600"
+                        >
+                            <td class="whitespace-nowrap px-6 py-4"><%= transaction.name %></td>
+                            <td class="whitespace-nowrap px-6 py-4"><%= transaction.created_at.strftime("%d %b %Y") %></td>
+                            <td class="whitespace-nowrap px-6 py-4">$<%= transaction.amount %></td>
+                        </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Button to add a new transaction -->
+    <div class="p-4">
+      <%= link_to 'Add a new transaction', new_category_transaction_path, class: 'bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600 transition duration-300' %>
+    </div>
+
+    <!-- Button to go back to the category page -->
+    <div class="p-4">
+      <%= link_to 'Go back to Category', categories_path, class: 'bg-red-500 text-white py-2 px-6 rounded-md hover:bg-red-600 transition duration-300' %>
+    </div>
+  </div>
+</div>
+</div>

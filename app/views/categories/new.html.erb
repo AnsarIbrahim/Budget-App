@@ -1,0 +1,33 @@
+<%= render 'partial/navbar' %>
+
+<div class="flex justify-center">
+  <%= form_for @category, url: categories_path, html: { class: 'w-full max-w-md bg-slate-100 p-6 rounded border border-gray-300 shadow-md' } do |f| %>
+    <div class="mb-4">
+      <%= f.label :name, class: 'block text-gray-700 text-sm font-bold mb-2' %>
+      <%= f.text_field :name, class: 'w-full px-3 py-2 border border-gray-300 rounded shadow-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :icon, class: 'block text-gray-600' %>
+      <%= f.select :icon, options_for_select([
+        ['Select an icon', ''],
+        ['Food', '<i class="fas fa-utensils" style="font-size: 2rem; color: tomato;"></i>'],
+        ['Travel', '<i class="fas fa-plane" style="font-size: 2rem; color: royalblue;"></i>'],
+        ['Health', '<i class="fas fa-heart" style="font-size: 2rem; color: crimson;"></i>'],
+        ['Education', '<i class="fas fa-book" style="font-size: 2rem; color: darkcyan;"></i>'],
+        ['Entertainment', '<i class="fas fa-music" style="font-size: 2rem; color: violet;"></i>'],
+        ['Shopping', '<i class="fas fa-shopping-cart" style="font-size: 2rem; color: chocolate;"></i>'],
+        ['Home', '<i class="fas fa-home" style="font-size: 2rem; color: forestgreen;"></i>'],
+        ['Work', '<i class="fas fa-briefcase" style="font-size: 2rem; color: darkorange;"></i>'],
+        ['Other', '<i class="fas fa-plus" style="font-size: 2rem; color: gray;"></i>'],
+      ], selected: @category.icon), class: 'form-input w-full px-3 py-2 border border-gray-300 rounded shadow-md text-gray-700' %>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <%= f.submit 'Save', class: 'bg-green-500 text-white py-2 px-6 rounded hover:bg-green-600 transition duration-300' %>
+      <%= link_to 'Back', categories_path, class: 'text-gray-500' %>
+    </div>
+  <% end %>
+</div>
+
+
