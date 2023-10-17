@@ -1,0 +1,30 @@
+<%= render 'partial/navbar' %>
+
+<div class="bg-gray-100 p-6 rounded-lg shadow-lg">
+  <h1 class="text-4xl font-bold mb-4">New Transaction</h1>
+
+  <%= form_with(model: [@category, @transaction], url: category_transactions_path(@category), local: true) do |form| %>
+    <div class="mb-4">
+      <%= form.label :name, class: 'block text-gray-600 text-sm font-semibold mb-2' %>
+      <%= form.text_field :name, class: 'border rounded w-full py-2 px-3' %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :amount, class: 'block text-gray-600 text-sm font-semibold mb-2' %>
+      <%= form.text_field :amount, class: 'border rounded w-full py-2 px-3' %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :category_id, class: 'block text-gray-600 text-sm font-semibold mb-2' %>
+      <%= form.collection_select :category_id, Group.where(id: @category.id), :id, :name, { prompt: 'Select a category' }, class: 'border rounded w-full py-2 px-3' %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.submit 'Save Transaction', class: 'bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600 transition duration-300 cursor-pointer' %>
+    </div>
+
+    <div class="mb-4">
+      <%= link_to 'Back', category_transactions_path, class: 'bg-white text-red-500 hover:text-red-700 border border-gray-300 py-2 px-6 rounded-md shadow-md' %>
+    </div>
+  <% end %>
+</div>

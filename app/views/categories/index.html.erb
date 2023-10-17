@@ -1,0 +1,47 @@
+<%= render 'partial/navbar' %>
+<div class="bg-white text-center w-[100%]">
+  <div class="bg-blue-500 text-white py-4">
+    <h1 class="font-bold text-2xl">TRANSACTIONS</h1>
+    
+    <div class="flex justify-end mt-3 space-x-5 mr-4">
+      <div class="relative cursor-pointer hover:text-green-500">
+        <p class="font-extralight">Most recent</p>
+        <div class="absolute w-2 h-2 bg-white left-1/2 -translate-x-1 -bottom-2 rounded-full"></div>
+      </div>
+      <div class="text-slate-400 cursor-pointer hover:text-green-500">
+        <p class="font-extralight">Most ancient</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-slate-100">
+    <div class="text-slate-500 flex items-center justify-between p-5 border-b shadow-lg">
+      <p class="font-semibold">Gift credit</p>
+      <p>$00.00</p>
+    </div>
+
+    <% @categories.each do |category| %>
+    <% total_amount = category.expenses.sum(:amount) %>
+    <%= link_to  category_transactions_path(category) do %>
+    <div class="flex justify-between items-center p-4 border-b shadow-md">
+      <div class="flex items-center">
+        <div class="">
+          <%= raw category.icon %>
+        </div>
+        <div class="ml-8">
+          <p class="font-medium text-base"><%= category.name %></p>
+          <p class="text-gray-600 text-sm font-light mt-2"><%= category.created_at.strftime("%d %b %Y") %></p>
+        </div>
+      </div>
+      <div>
+        <p>$<%= total_amount %></p>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+
+    <div class="p-4">
+      <%= link_to 'Add a new category', new_category_path, class: 'bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600 transition duration-300' %>
+    </div>
+  </div>
+</div>
