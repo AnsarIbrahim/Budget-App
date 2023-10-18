@@ -1,6 +1,11 @@
 class TransactionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category, only: %i[index new]
+  before_action :set_ability
+
+  def set_ability
+    @ability = Ability.new(current_user)
+  end
 
   def index
     @transactions = @category.expenses.where(author: current_user)
