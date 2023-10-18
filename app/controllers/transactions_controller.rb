@@ -9,7 +9,7 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = @category.expenses.where(author: current_user)
-    @total_amount = calculate_total_amount(@transactions)
+    @total_amount = format('%.2f', calculate_total_amount(@transactions))
   end
 
   def new
