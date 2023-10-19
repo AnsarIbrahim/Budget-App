@@ -51,7 +51,7 @@
 </details>
 <details>
   <summary>Database</summary>
-    <li><a href="https://www.postgresql.org/">Postgres</a></li>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
 </details>
 
 <!-- Features -->
@@ -99,7 +99,7 @@ Clone this repository to your desired folder:
   git clone https://github.com/AnsarIbrahim/Budget-App.git
 ```
 
-You need to setup database for these project
+You need to set up a database for these project
 
 ```
   development = budget_app_dev
@@ -111,8 +111,8 @@ or you can use your own database and change the ```config/database.yml```
 
 ```yml
   default: &default
-    adapter: postgresql
-    encoding: unicode
+    adapter: PostgreSQL
+    encoding: Unicode
     pool: 5
     username: [your_username]
     password: [your_password]
@@ -140,7 +140,7 @@ Install this project with:
   bundle install
 ```
 
-it will install the required gemfile for running the project
+it will install the required gem file for running the project
 
 ### Usage
 
@@ -202,7 +202,7 @@ If you like this project you can share this project to your friend
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> The originl design idea for this web page was created by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
+> The original design idea for this web page was created by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
 - I would like to thank Microverse for defining these project requirements.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
