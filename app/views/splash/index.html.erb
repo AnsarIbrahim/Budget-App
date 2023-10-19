@@ -1,14 +1,10 @@
-<div class="flex h-screen items-center justify-center bg-blue-500">
+<div class="flex flex-col items-center justify-center h-screen bg-white">
   <div class="text-center">
-    <h1 class="text-4xl mb-8 text-white font-bold">Welcome to <%= @app_name %></h1>
-    <p>
-      <a href="<%= new_user_registration_path %>" class="bg-green-500 hover:bg-green-600 text-white text-lg px-6 py-3 rounded-full mr-4 font-semibold transition-transform transform hover:scale-105">Sign Up</a>
-      <a href="<%= new_user_session_path %>" class="bg-green-500 hover:bg-green-600 text-white text-lg px-6 py-3 rounded-full mr-4 font-semibold transition-transform transform hover:scale-105">Log In</a>
+    <h1 class="text-4xl mt-20 text-slate-600 font-bold mb-8">Welcome to <%= @app_name %></h1>
 
-      <!-- Log Out button -->
-      <% if user_signed_in? %>
-        <%= link_to('Log Out', destroy_user_session_path, method: :delete, class: 'text-white bg-red-500 hover:bg-red-600 text-lg px-6 py-3 rounded-full font-semibold transition-transform transform hover:scale-105') %>
-      <% end %>
-    </p>
+    <div class="flex flex-col items-center justify-end flex-grow">
+      <a href="<%= new_user_session_path %>" class="w-[80%] bg-blue-500 hover:bg-blue-600 text-white text-lg px-6 py-3 mb-4 mt-64 font-semibold transition-transform transform hover:scale-105">Log In</a>
+      <a href="<%= new_user_registration_path %>" class="w-[80%] bg-white hover:bg-gray-200 text-slate-500 text-lg px-6 py-3 font-semibold transition-transform transform hover:scale-105">Sign Up</a>
+    </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <%= render 'partial/navbar' %>
-<div class="bg-white text-center w-[100%]">
+<div class="bg-white text-center w-full h-[92vh] flex flex-col">
   <div class="bg-blue-500 text-white py-4">
     <h1 class="font-bold text-2xl">TRANSACTIONS</h1>
     
@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <div class="bg-slate-100">
+  <div class="bg-slate-100 flex-grow">
     <div class="text-slate-500 flex items-center justify-between p-5 border-b shadow-lg">
       <p class="font-semibold">Gift credit</p>
       <p>$00.00</p>
@@ -39,9 +39,9 @@
     </div>
     <% end %>
     <% end %>
+  </div>
 
-    <div class="p-4">
-      <%= link_to 'Add a new category', new_category_path, class: 'bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600 transition duration-300' %>
-    </div>
+  <div class="p-6 bg-green-600">
+    <%= link_to 'Add a new category', new_category_path, class: 'bg-green-600 text-white py-3 px-12 border hover:bg-green-700 transition duration-300' %>
   </div>
 </div>
