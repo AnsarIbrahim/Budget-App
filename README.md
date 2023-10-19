@@ -71,7 +71,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://budget-app-b5ut.onrender.com/)
-- [Video Walkthrough]()
+- [Video Walkthrough](https://www.loom.com/share/06c3cbaf70b74d25ad8584ade58698ce?sid=ee3da631-7d88-4dd9-9e93-65cdb2413524)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
