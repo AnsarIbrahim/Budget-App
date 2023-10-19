@@ -7,7 +7,7 @@ services:
   - type: web
     name: Budget-App
     runtime: ruby
-    buildCommand: "./bin/render-build.sh; bundle exec rails db:migrate "
+    buildCommand: "./bin/render-build.sh; bundle exec rails db:migrate"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
